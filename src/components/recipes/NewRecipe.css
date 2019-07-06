@@ -1,0 +1,21 @@
+form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 8fr 1fr;
+}
+
+label {
+  grid-column: 2;
+  padding: 10px;
+}
+
+#name {
+  grid-column: 2;
+}
+
+#submitBtnContainer {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+}
+

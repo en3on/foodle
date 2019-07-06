@@ -1,21 +1,19 @@
-form {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 8fr 1fr;
+#newRecipeForm {
+  padding-top: 5vh;
 }
 
-label {
-  grid-column: 2;
-  padding: 10px;
-}
-
-#name {
-  grid-column: 2;
-}
-
-#submitBtnContainer {
-  grid-column: 2;
+#recipeNameLabel {
   display: flex;
   justify-content: center;
 }
+
+#ingredientInputContainer {
+  padding-top: 20px;
+}
+
+.listItem:hover {
+  background-color: #F5a6a8;
+  cursor: pointer;
+}
+
 

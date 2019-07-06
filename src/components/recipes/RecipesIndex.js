@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 const axios = require('axios');
 
-class RecipesList extends Component {
+class RecipesIndex extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,4 +34,4 @@ class RecipesList extends Component {
   }
 }
 
-export default RecipesList;
+export default RecipesIndex;

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './NewRecipe.css';
 import {Button, Form, Container, Row, Col, ListGroup} from 'react-bootstrap';
+import axios from 'axios';
 
 // import IngredientForm from './IngredientForm.js';
 import IngredientInput from './IngredientInput.js';
@@ -16,6 +17,8 @@ class NewRecipe extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.ingredientChangeHandler = this.ingredientChangeHandler.bind(this);
     this.removeIngredient = this.removeIngredient.bind(this);
+    this.addNewRecipeHandler = this.addNewRecipeHandler.bind(this);
+    this.createRecipe = this.createRecipe.bind(this);
   }
 
   handleChange(e) {
@@ -30,6 +33,28 @@ class NewRecipe extends Component {
     const newArr = this.state.ingredients;
     newArr.splice(idx, 1);
     this.setState({ingredients: newArr});
+  }
+
+  addNewRecipeHandler() {
+    const {name, ingredients} = this.state;
+    console.log('Hanlding new Recipe');
+    this.createRecipe({name, ingredients});
+  }
+
+  async createRecipe(recipe) {
+    const URL = "http://localhost:5000/recipes/";
+    const data = JSON.stringify(recipe);
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json',
+      },
+    };
+
+    console.log(data);
+
+    const resp = await axios.post(URL, data, options);
+    console.log(resp);
   }
 
   render() {
@@ -58,6 +83,9 @@ class NewRecipe extends Component {
                 <IngredientInput ingredientChange={this.ingredientChangeHandler} />
               </div>
             </Form.Group>
+          </Row>
+          <Row className="justify-content-md-center">
+            <Button variant="outline-success" onClick={this.addNewRecipeHandler}>Create</Button>
           </Row>
         </Form>
       </Container>

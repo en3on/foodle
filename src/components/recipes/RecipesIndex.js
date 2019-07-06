@@ -21,8 +21,8 @@ class RecipesIndex extends Component {
       console.log(recipes)
       return (
         <ul>
-          {recipes.map((recipe) => (
-            <li>
+          {recipes.map((recipe, idx) => (
+            <li key={idx}>
               <Link to={`/recipes/${recipe._id}`}>{recipe.name}</Link>
             </li>
           ))}

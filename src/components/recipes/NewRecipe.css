@@ -1,7 +1,6 @@
 #newRecipeForm {
   padding-top: 5vh;
 }
-
 #recipeNameLabel {
   display: flex;
   justify-content: center;
@@ -16,4 +15,6 @@
   cursor: pointer;
 }
 
-
+Row {
+  justify-content: center;
+}

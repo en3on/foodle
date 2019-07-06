@@ -10,7 +10,7 @@ class NewRecipe extends Component {
     super(props);
 
     this.state = {
-      ingredients: ['test'],
+      ingredients: [],
     };
 
     this.handleChange = this.handleChange.bind(this);

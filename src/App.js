@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 
 /* Import components */
+import Navbar from './components/Navbar.js';
 import Home from './components/Home.js';
 import RecipesIndex from './components/recipes/RecipesIndex.js';
 import RecipeInfo from './components/recipes/RecipeInfo.js';
@@ -19,6 +20,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <Navbar />
         <Switch>
           <Route path="/recipes/new" component={NewRecipe} />
           <Route path="/recipes/:id" component={RecipeInfo} />

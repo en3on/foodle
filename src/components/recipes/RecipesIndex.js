@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+
+/* Import Components */
+import RecipeCard from './RecipeCard.js';
+
 const axios = require('axios');
 
 class RecipesIndex extends Component {
@@ -20,13 +24,11 @@ class RecipesIndex extends Component {
     if (recipes.length !== 0) {
       console.log(recipes)
       return (
-        <ul>
-          {recipes.map((recipe, idx) => (
-            <li key={idx}>
-              <Link to={`/recipes/${recipe._id}`}>{recipe.name}</Link>
-            </li>
+        <>
+          {this.state.recipes.map((recipe, idx) => (
+            <RecipeCard key={idx} recipe={recipe} />
           ))}
-        </ul>
+        </>
       );
     } else {
       return <></>

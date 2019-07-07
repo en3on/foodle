@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import './NewRecipe.css';
 import {Button, Form, Container, Row, Col, ListGroup} from 'react-bootstrap';
 import axios from 'axios';
@@ -53,8 +54,12 @@ class NewRecipe extends Component {
 
     console.log(data);
 
-    const resp = await axios.post(URL, data, options);
-    console.log(resp);
+    try {
+      const resp = await axios.post(URL, data, options);
+      this.props.history.push('/recipes');
+    } catch (err) {
+      console.log(err);
+    };
   }
 
   render() {
